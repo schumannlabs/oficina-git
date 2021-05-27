@@ -1,6 +1,8 @@
 # :octocat: Oficina de Git e Github SchumannLabs [:link:](https://github.com/schumannlabs/oficina-git) #
 
-Este repositório foi criado para servir como material de apoio em uma oficina sobre Git e Github feita na @schumannlabs.
+Este repositório foi criado para servir como material de apoio em uma oficina sobre Git e Github feita na [@schumannlabs](https://github.com/schumannlabs).
+
+[Guia de bolso](guia-de-bolso.md)
 
 ## 📑 Sumário ##
 
@@ -21,9 +23,13 @@ Este repositório foi criado para servir como material de apoio em uma oficina s
       - [➕📄 Adicionando arquivos novos ou modificados](#-adicionando-arquivos-novos-ou-modificados)
         - [Um arquivo](#um-arquivo)
         - [Todos novos arquivos e mudanças](#todos-novos-arquivos-e-mudanças)
-      - [📦📄 Adicionando eles de fato ao repositório](#-adicionando-eles-de-fato-ao-repositório)
-      - [🚚📄 Enviando as mudanças para o repositório remoto](#-enviando-as-mudanças-para-o-repositório-remoto)
+      - [📦📄 Adicionando eles de fato ao repositório local](#-adicionando-eles-de-fato-ao-repositório-local)
+      - [📤🚚📄 Enviando as mudanças para o repositório remoto](#-enviando-as-mudanças-para-o-repositório-remoto)
       - [👀📄 Verificando o status do repositório local](#-verificando-o-status-do-repositório-local)
+      - [📥🚚📄 Trazendo mudanças do repositório remoto](#-trazendo-mudanças-do-repositório-remoto)
+    - [➕📁🌲 Criando repositórios Git](#-criando-repositórios-git)
+      - [➕☁️📁🌲 Tá eu tenho um repositório local mais e o remoto ?](#️-tá-eu-tenho-um-repositório-local-mais-e-o-remoto-)
+      - [💻 Ok, agora eu tenho um repositório local referenciado à um remoto, qual o próximo passo ?](#-ok-agora-eu-tenho-um-repositório-local-referenciado-à-um-remoto-qual-o-próximo-passo-)
   - [📣 FAQ](#-faq)
     - [❔ Git e Github são a mesma coisa ?](#-git-e-github-são-a-mesma-coisa-)
   - [🔎 Going Deeper](#-going-deeper)
@@ -53,7 +59,7 @@ Veja: <https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control>
 
 Ao modificar configurações do git, pode-se escolher o escopo destas, seja no repositório onde a pasta .git/ está, ou para todos os repositórios git no computador;
 
-E.g. Setando um mesmo user.name para todos repositórios no computador:
+E.g. Configurando um mesmo user.name para todos repositórios git no computador:
 
 ```bash
 > git config --global user.name "exemploschumann"
@@ -67,7 +73,7 @@ E.g. Configurando um email para apenas um repositório:
 C:/Users/exemplo/Documents/oficina-git> git config user.email "exemplo1@schumann.com.br"
 ```
 
-O user.name e user.email são obrigatórios para usar o git, porém existem várias outras configurações que podem ser alteradas, pode-se ve-las usando:
+O user.name e user.email são obrigatórios para usar o git, porém existem várias outras configurações que podem ser alteradas, pode-se vê-las usando:
 
 ```bash
 git config --list
@@ -163,7 +169,7 @@ git push origin --delete feature/9221
 
 ### 📄 Manipulando arquivos no git ###
 
-Para explicar manipulação de arquivos vou usar a forma que este [artigo](https://dev.to/sublimegeek/git-staging-area-explained-like-im-five-1anh#:~:text=You%20can%20take%20stuff%20out,that%20box%20are%20your%20changes.) fez, recomendo a leitura do mesmo.
+Para explicar manipulação de arquivos vou usar a forma que este [artigo](https://dev.to/sublimegeek/git-staging-area-explained-like-im-five-1anh#:~:text=You%20can%20take%20stuff%20out,that%20box%20are%20your%20changes.) fez.
 
 #### ➕📄 Adicionando arquivos novos ou modificados ####
 
@@ -189,9 +195,9 @@ ou
 git add -A
 ```
 
-#### 📦📄 Adicionando eles de fato ao repositório ####
+#### 📦📄 Adicionando eles de fato ao repositório local ####
 
-Quando você tem uma caixa que está com objetos, para envia-las para o depósito se faz necessário fecha-lá e rotular a mesma, para isso usa-se o **git commit**
+Quando você tem uma caixa que está com objetos, para envia-las para o depósito se faz necessário fecha-la e rotular a mesma, para isso usa-se o git **commit**.
 
 ```bash
 git commit -m "Título do Rótulo da caixa" -m "Mais informações sobre a caixa no rótulo" -m "Pode-se usar o -m várias vezes, ele cria como se fossem paragráfos a cada novo -m" -m "Lembre-se de escrever títulos curtos e descritivos no título do commit"
@@ -201,14 +207,14 @@ git commit -m "Título do Rótulo da caixa" -m "Mais informações sobre a caixa
 Você pode também simplesmente ao invés de usar o git add para adicionar cuidadosamente os itens na "caixa" usar a flag -a no commit sem ter usado o git add antes, que é como se você passasse o braço na mesa jogasse todos os itens dela na caixa, já colocar fechar e rotular ela.
 
 ```bash
-git commit -am "Jogando tudo da mesa na caixa" -m "Literalmente adicionando toda e qualquer mudança que ocorreu no Working Directory para o repositório"
+git commit -a -m "Jogando tudo da mesa na caixa" -m "Literalmente adicionando toda e qualquer mudança que ocorreu no Working Directory para o repositório"
 ```
 
 Veja: <https://git-scm.com/docs/git-commit>
 
-#### 🚚📄 Enviando as mudanças para o repositório remoto ####
+#### 📤🚚📄 Enviando as mudanças para o repositório remoto ####
 
-É como se você pegasse todas as caixas que estão prontas para serem transportadas e as entregasse para um serviço que vai "mágicamente" criar uma cópis delas e leva-las ao seu depósito, para fazer isso deve-se usar o **git push**
+É como se você pegasse todas as caixas que estão prontas para serem transportadas e as entregasse para um serviço que vai "magicamente" criar cópias delas e leva-las ao seu depósito, para fazer isso deve-se usar o **git push**
 
 ```bash
 git push
@@ -225,6 +231,39 @@ git status
 ```
 
 Veja: <https://git-scm.com/docs/git-status>
+
+#### 📥🚚📄 Trazendo mudanças do repositório remoto ####
+
+Lembra do depósito que foi comentado antes (repositório remoto), quando é preciso trazer as coisas que estão nele para você (repositório local) pode-se usar dois comandos **git fetch** ou **git pull**, mas qual a diferença ?
+
+O **git fetch** verifica as mudanças que ocorreram no depósito, e traz apenas as que não vão conflitar com as locais, é como se as caixas que estão aqui, apenas fossem ganhar novos objetos, e não perder nenhum.
+
+Veja: <https://git-scm.com/docs/git-fetch>
+
+Já o **git pull** traz todas as mudanças que ocorreram lá, podendo remover objetos, ou mudar estes que estão localmente.
+
+Veja: <https://git-scm.com/docs/git-fetch>
+
+### ➕📁🌲 Criando repositórios Git ###
+
+Como eu crio um repositório Git local 🏠 ?
+Para isso utiliza-se o comando **git init** dentro de uma pasta, que irá "transformar" essa em um repositório Git.
+
+```bash
+git init
+```
+
+#### ➕☁️📁🌲 Tá eu tenho um repositório local mais e o remoto ? ####
+
+Devemos seguir a arquitetura do Git, para isso é necessário um repositório remoto, como estamos usando Github nesta oficina, deve-se criar um repositório lá e dizer para nosso repositório local que aquele é o remoto, para isso usamos o **git add remote**:
+
+```bash
+git add remote https://github.com/nomeDoSeuUsuario/nomeDoRepositorioRemoto
+```
+
+#### 💻 Ok, agora eu tenho um repositório local referenciado à um remoto, qual o próximo passo ? ####
+
+Agora tu pode já manipular os arquivos, por exemplo adicionando ([*git add*](#-adicionando-arquivos-novos-ou-modificados)) algo ao repositório local, commitando ([*git commit*](#-adicionando-eles-de-fato-ao-repositório-local)) e então enviando eles ao remoto ([*git push*](#-enviando-as-mudanças-para-o-repositório-remoto)).
 
 ## 📣 FAQ ##
 

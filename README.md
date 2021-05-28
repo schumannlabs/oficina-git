@@ -11,24 +11,39 @@ Este repositório foi criado para servir como material de apoio em uma oficina s
   - [🔰 Iniciando](#-iniciando)
     - [⚙️ Configurando Git](#️-configurando-git)
     - [📥 Baixando um repositório](#-baixando-um-repositório)
-      - [👩‍💻 Via terminal](#-via-terminal)
-      - [📺 Via Github Desktop](#-via-github-desktop)
+      - [📥👩‍💻 Via terminal](#-via-terminal)
+      - [📥📺 Via Github Desktop](#-via-github-desktop)
     - [🌲 Branches](#-branches)
       - [🔄🌲 Alternando entre branches](#-alternando-entre-branches)
+        - [🔄🌲👩‍💻 Via terminal](#-via-terminal-1)
+        - [🔄🌲📺 Via Github Desktop](#-via-github-desktop-1)
       - [➕🌲 Criando um novo branch localmente](#-criando-um-novo-branch-localmente)
+        - [➕🌲👩‍💻 Via terminal](#-via-terminal-2)
+        - [➕🌲📺 Via Github Desktop](#-via-github-desktop-2)
       - [📤🌲 Subindo um branch Local para o remote](#-subindo-um-branch-local-para-o-remote)
+        - [📤🌲📺 Via Github Desktop](#-via-github-desktop-3)
       - [🚮🌲🏠 Deletando um branch Local](#-deletando-um-branch-local)
+        - [🚮🌲🏠📺 Via Github Desktop](#-via-github-desktop-4)
       - [🚮🌲🌐 Deletando um branch remoto](#-deletando-um-branch-remoto)
+        - [🚮🌲🌐📺 Via Github Desktop](#-via-github-desktop-5)
     - [📄 Manipulando arquivos no git](#-manipulando-arquivos-no-git)
       - [➕📄 Adicionando arquivos novos ou modificados](#-adicionando-arquivos-novos-ou-modificados)
         - [Um arquivo](#um-arquivo)
         - [Todos novos arquivos e mudanças](#todos-novos-arquivos-e-mudanças)
+        - [➕📄📺 Via Github Desktop](#-via-github-desktop-6)
       - [📦📄 Adicionando eles de fato ao repositório local](#-adicionando-eles-de-fato-ao-repositório-local)
+        - [📦📄📺 Via Github Desktop](#-via-github-desktop-7)
       - [📤🚚📄 Enviando as mudanças para o repositório remoto](#-enviando-as-mudanças-para-o-repositório-remoto)
+        - [📤🚚📄📺 Via Github Desktop](#-via-github-desktop-8)
       - [👀📄 Verificando o status do repositório local](#-verificando-o-status-do-repositório-local)
+        - [👀📄📺 Via Github Desktop](#-via-github-desktop-9)
       - [📥🚚📄 Trazendo mudanças do repositório remoto](#-trazendo-mudanças-do-repositório-remoto)
+        - [📥🚚📄📺 Git Pull via Github Desktop](#-git-pull-via-github-desktop)
+        - [📥🚚📄📺 Git Fetch via Github Desktop](#-git-fetch-via-github-desktop)
     - [➕📁🌲 Criando repositórios Git](#-criando-repositórios-git)
+      - [➕📁🌲📺 Criar repositório local pelo Github Desktop](#-criar-repositório-local-pelo-github-desktop)
       - [➕☁️📁🌲 Tá eu tenho um repositório local mais e o remoto ?](#️-tá-eu-tenho-um-repositório-local-mais-e-o-remoto-)
+      - [➕☁️📁🌲📺 Via Github Desktop](#️-via-github-desktop)
       - [💻 Ok, agora eu tenho um repositório local referenciado à um remoto, qual o próximo passo ?](#-ok-agora-eu-tenho-um-repositório-local-referenciado-à-um-remoto-qual-o-próximo-passo-)
   - [📣 FAQ](#-faq)
     - [❔ Git e Github são a mesma coisa ?](#-git-e-github-são-a-mesma-coisa-)
@@ -87,17 +102,18 @@ Para baixar um repositório git para sua máquina é precisar fazer um Git Clone
 
 Veja: <https://git-scm.com/docs/git-clone>
 
-#### 👩‍💻 Via terminal ####
+#### 📥👩‍💻 Via terminal ####
 
 Após isso, abra o terminal (cmd, powershell, ...) navegue até onde tu quer baixar este repositório e rode o seguinte comando:
 
+Para poder baixar repositórios privados, e realizar mudanças no repositório remoto, é necessário se autenticar, recomendo criar e adicionar uma chave SSH ao Github: <https://docs.github.com/pt/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>
+> <http://guides.beanstalkapp.com/version-control/git-on-windows.html>
+
 ```bash
-git clone https://github.com/schumannlabs/oficina-git.git
+git clone git@github.com:schumannlabs/oficina-git.git
 ```
 
->Obs. Caso não queira ficar digitando teu usuário e Senha do Github toda vez que for usar o git, basta adicionar uma chave SSH : <https://docs.github.com/pt/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>
-
-#### 📺 Via Github Desktop ####
+#### 📥📺 Via Github Desktop ####
 
 1. Vá em File -> Clone Repository (Ou pressione: *Ctrl + Shift + O*);
 2. Selecione URL -> Adicione a URL deste repositório, escolha o local onde o repositório será baixado.
@@ -135,17 +151,32 @@ Veja:
 
 Suponde que você está em um repositório que possui vários branches, pode-se alterar localmente a versão dos arquivos de acordo com o branch usando o seguinte comando:
 
+##### 🔄🌲👩‍💻 Via terminal #####
+
 ```bash
 git checkout homologation
 ```
 
+##### 🔄🌲📺 Via Github Desktop #####
+
+![Switch branch Github Desktop](imagens/GithubDesktopSwitchBranch.png)
+
 #### ➕🌲 Criando um novo branch localmente ####
 
-Pode-se utilizar também o checkout:
+Quando vai se criar um novo branch, deve-se dizer à partir de qual este será criado.
+
+##### ➕🌲👩‍💻 Via terminal #####
+
+Pode-se utilizar o checkout para criar um novo branch a partir do atual:
 
 ```bash
 git checkout -b feature/9221
 ```
+
+##### ➕🌲📺 Via Github Desktop #####
+
+1. Vá em Branch -> New Branch (Ou pressione: *Ctrl + Shift + N*);
+2. Digite o nome do novo branch, ex: feature/nomeBranch e selecione a partir de qual branch esse será criado.
 
 #### 📤🌲 Subindo um branch Local para o remote ####
 
@@ -155,17 +186,31 @@ git push -u origin HEAD
 
 **-u** = --set-upstream
 
+##### 📤🌲📺 Via Github Desktop #####
+
+![Github Desktop Publish Local Branch](imagens/GithubDesktopPublishLocalBranch.png)
+
 #### 🚮🌲🏠 Deletando um branch Local ####
 
 ```bash
 git branch -d feature/9221
 ```
 
+##### 🚮🌲🏠📺 Via Github Desktop #####
+
+1. Vá em Branch -> Delete Branch (Ou pressione: Ctrl + Shift + D);
+2. Confirme na caixa de dialogo que quer deleter.
+
 #### 🚮🌲🌐 Deletando um branch remoto ####
 
 ```bash
 git push origin --delete feature/9221
 ```
+
+##### 🚮🌲🌐📺 Via Github Desktop #####
+
+1. Vá em Branch -> Delete Branch (Ou pressione: Ctrl + Shift + D);
+2. Digite o nome do novo branch, ex: feature/nomeBranch e selecione a partir de qual branch esse será criado.
 
 ### 📄 Manipulando arquivos no git ###
 
@@ -195,6 +240,14 @@ ou
 git add -A
 ```
 
+##### ➕📄📺 Via Github Desktop #####
+
+O equivalente ao git add, são as caixas de seleção dos arquivos:
+
+![Github Desktop Git add](imagens/GithubDesktopGitAdd.png)
+
+Os que estão selecionados irão para staging area, como se fosse um git add nestes.
+
 #### 📦📄 Adicionando eles de fato ao repositório local ####
 
 Quando você tem uma caixa que está com objetos, para envia-las para o depósito se faz necessário fecha-la e rotular a mesma, para isso usa-se o git **commit**.
@@ -212,6 +265,14 @@ git commit -a -m "Jogando tudo da mesa na caixa" -m "Literalmente adicionando to
 
 Veja: <https://git-scm.com/docs/git-commit>
 
+##### 📦📄📺 Via Github Desktop #####
+
+Para realizar um commit, basta preencher a mensagem de commit, colocar descrição ou co-autor caso queira e então clicar em commit:
+
+![Github Desktop Git Commit](imagens/GithubDesktopGitCommit.png)
+
+Os que estão selecionados irão para staging area, como se fosse um git add nestes.
+
 #### 📤🚚📄 Enviando as mudanças para o repositório remoto ####
 
 É como se você pegasse todas as caixas que estão prontas para serem transportadas e as entregasse para um serviço que vai "magicamente" criar cópias delas e leva-las ao seu depósito, para fazer isso deve-se usar o **git push**
@@ -222,6 +283,14 @@ git push
 
 Obs. O serviço que vai entregar essas mudanças vai conferir primeiro se o que enviou pode ser entregue, pois pode ser que exista conflitos.
 
+##### 📤🚚📄📺 Via Github Desktop #####
+
+Para realizar um commit, basta preencher a mensagem de commit, colocar descrição ou co-autor caso queira e então clicar em commit:
+
+![Github Desktop Git Commit](imagens/GithubDesktopGitCommit.png)
+
+Os que estão selecionados irão para staging area, como se fosse um git add nestes.
+
 #### 👀📄 Verificando o status do repositório local ####
 
 Para ver o que tem na caixa que está na sua mesa, nas caixas que estão ao seu redor, ou em ambas usa-se o comando **git status**:
@@ -231,6 +300,12 @@ git status
 ```
 
 Veja: <https://git-scm.com/docs/git-status>
+
+##### 👀📄📺 Via Github Desktop #####
+
+As mudanças no seu repositório, são visíveis na barra lateral esquerda, no mesmo local onde tu escolhe se vai adicionar ou não a mudança do arquivo ao próximo commit:
+
+![Github Desktop Git Status](imagens/GithubDesktopGitStatus.png);
 
 #### 📥🚚📄 Trazendo mudanças do repositório remoto ####
 
@@ -244,6 +319,16 @@ Já o **git pull** traz todas as mudanças que ocorreram lá, podendo remover ob
 
 Veja: <https://git-scm.com/docs/git-fetch>
 
+##### 📥🚚📄📺 Git Pull via Github Desktop #####
+
+1. Vá em Repository -> Pull (Ou pressione: *Ctrl + Shift + P*);
+
+##### 📥🚚📄📺 Git Fetch via Github Desktop #####
+
+Basta clicar em Fetch:
+
+![Github Desktop Fetch](imagens/GithubDesktopGitFetch.png)
+
 ### ➕📁🌲 Criando repositórios Git ###
 
 Como eu crio um repositório Git local 🏠 ?
@@ -253,6 +338,11 @@ Para isso utiliza-se o comando **git init** dentro de uma pasta, que irá "trans
 git init
 ```
 
+#### ➕📁🌲📺 Criar repositório local pelo Github Desktop ####
+
+1. Vá em File -> New Repository (Ou pressione *Ctrl + N*)
+2. Preencha as informações, e seleciona as opções que deseja.
+
 #### ➕☁️📁🌲 Tá eu tenho um repositório local mais e o remoto ? ####
 
 Devemos seguir a arquitetura do Git, para isso é necessário um repositório remoto, como estamos usando Github nesta oficina, deve-se criar um repositório lá e dizer para nosso repositório local que aquele é o remoto, para isso usamos o **git add remote**:
@@ -260,6 +350,12 @@ Devemos seguir a arquitetura do Git, para isso é necessário um repositório re
 ```bash
 git add remote https://github.com/nomeDoSeuUsuario/nomeDoRepositorioRemoto
 ```
+
+#### ➕☁️📁🌲📺 Via Github Desktop ####
+
+Com o repositório local criado e selecionado pelo Github Desktop, será possível criar o Remoto usando o atalho *Ctrl + P*, ou clicando em uma das opções de publicar o mesmo:
+
+![Gituhub Desktop Create Remote Repository](imagens/GituhubDesktopCreateRemoteRepo.png)
 
 #### 💻 Ok, agora eu tenho um repositório local referenciado à um remoto, qual o próximo passo ? ####
 
